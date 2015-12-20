@@ -1,12 +1,13 @@
 #ifndef TFT_22_ILI9225_h
 #define TFT_22_ILI9225_h
 
-#if ARDUINO >= 100
-    #include "Arduino.h"
+#include "Arduino.h"
+#if defined(ESP8266)
+    #include "pgmspace.h"
 #else
-    #include "WProgram.h"
+    #include "avr/pgmspace.h"
 #endif
-#include <avr/pgmspace.h>
+
 
 // Other libraries
 #include "SPI.h"
