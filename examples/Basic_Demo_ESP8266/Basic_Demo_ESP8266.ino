@@ -2,13 +2,19 @@
 #include <SPI.h>
 #include <TFT_22_ILI9225.h>
 
+// #define TFT_RST 8
+// #define TFT_RS  9
+// #define TFT_CS  10  // SS
+// #define TFT_SDI 11  // MOSI
+// #define TFT_CLK 13  // SCK
+// #define TFT_LED 3   // 0 if wired to +5V directly
 
-#define TFT_RST D4  // GPIO2
-#define TFT_RS  D2  // GPIO4
-#define TFT_CS  D8  // GPIO15
-#define TFT_SDI D7  // GPIO13
-#define TFT_CLK D5  // GPIO14
-#define TFT_LED D1  // GPIO5
+#define TFT_RST D4
+#define TFT_RS  D2
+#define TFT_CS  D8  // SS
+#define TFT_SDI D7  // MOSI
+#define TFT_CLK D5  // SCK
+#define TFT_LED D1   // 0 if wired to +5V directly
 
 // Use hardware SPI (faster - on Uno: 13-SCK, 12-MISO, 11-MOSI)
 TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_LED);
@@ -16,8 +22,8 @@ TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_LED);
 //TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_SDI, TFT_CLK, TFT_LED);
 
 // Variables and constants
-uint16_t x, y;
-boolean flag = false;
+// uint16_t x, y;
+// boolean flag = false;
 
 // Setup
 void setup() {
@@ -27,7 +33,7 @@ void setup() {
 
 // Loop
 void loop() {
-    
+  
   tft.drawRectangle(0, 0, tft.maxX() - 1, tft.maxY() - 1, COLOR_WHITE);
   tft.setFont(Terminal6x8);
   tft.drawText(10, 10, "hello!");
@@ -101,9 +107,7 @@ void loop() {
   tft.drawText(10, 60, "off");
   delay(1000);
   
-  tft.setBacklight(false);
-  tft.setDisplay(false);
-  
-  while(true);
+  tft.clear();
+  // tft.setDisplay(false);
 
 }
