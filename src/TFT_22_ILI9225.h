@@ -136,7 +136,8 @@ class TFT_22_ILI9225 {
 
 		/// Switch backlight on or off
 		/// @param	flag true=on, false=off
-		void setBacklight(boolean flag); 
+		// void setBacklight(boolean flag); 
+		void setBacklight(uint8_t intensity); //set backlight intensity by pwm 0-255
 
 		/// Switch display on or off
 		/// @param	flag true=on, false=off
