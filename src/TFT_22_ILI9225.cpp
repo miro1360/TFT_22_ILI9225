@@ -157,7 +157,8 @@ void TFT_22_ILI9225::begin() {
     }
 
 	// Turn on backlight
-	if (_led > 0) digitalWrite(_led, HIGH);
+//	if (_led > 0) digitalWrite(_led, HIGH);
+	if (_led > 0) analogWrite(_led, intensity); //for PWM, intensity 0-255
 
 	// Initialization Code
 	if (_rst > 0) {
@@ -265,8 +266,10 @@ void TFT_22_ILI9225::invert(boolean flag) {
 }
 
 
-void TFT_22_ILI9225::setBacklight(boolean flag) {
-	if (_led) digitalWrite(_led, flag);
+//void TFT_22_ILI9225::setBacklight(boolean flag) {
+//	if (_led) digitalWrite(_led, flag);
+void TFT_22_ILI9225::setBacklight(uint8_t intensity) {
+	if (_led) digitalWrite(_led, intensity1); // for PWM intensity 0-255
 }
 
 
