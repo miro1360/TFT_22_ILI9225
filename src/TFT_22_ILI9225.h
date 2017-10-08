@@ -303,6 +303,7 @@ class TFT_22_ILI9225 {
 		uint8_t  _rst, _rs, _cs, _sdi, _clk, _led,
 				 _orientation;
         uint8_t  mosipinmask, clkpinmask, cspinmask, dcpinmask;
+	uint8_t  intensity; //added for backlight pwm support
 
 	  	boolean  hwSPI, checkSPI;
 
